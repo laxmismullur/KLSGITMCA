@@ -1,0 +1,17 @@
+name: Hello World CI/CD Demo
+
+on: [push]
+
+jobs:
+  my-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository code
+        uses: actions/checkout@v4
+      - name: Run a one-line script
+        run: echo "Hello world! This job is running on ${{ runner.os }}."
+      - name: Run a multi-line script
+        run: |
+          echo "This demonstrates a simple CI step."
+          echo "The event that triggered this was a ${{ github.event_name }} event."
+          echo "The name of your branch is ${{ github.ref }}."
